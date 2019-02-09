@@ -7,7 +7,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 /**
  * @author DesertFoxHU
- * @version 1.1
+ * @version 1.1b
  */
 
 public class CustomYML {
