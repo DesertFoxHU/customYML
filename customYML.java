@@ -7,7 +7,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 /**
  * @author DesertFoxHU
- * @version 1.0
+ * @version 1.1
  */
 
 public class CustomYML {
@@ -25,6 +25,11 @@ public class CustomYML {
 	 * @param create a new file
 	 */
 	public File createFile(String name) {
+		
+		if(!name.contains(".yml")) {
+			name = name + ".yml";
+		}
+		
 		file = new File(p.getDataFolder() + File.separator + name);
 		return file;
 	}
@@ -38,6 +43,10 @@ public class CustomYML {
 			this.folder.mkdirs();
 		}
 		
+		if(!name.contains(".yml")) {
+			name = name + ".yml";
+		}
+		
 		file = new File(p.getDataFolder() + File.separator + folder + File.separator + name);
 		return file;
 	}
@@ -46,6 +55,11 @@ public class CustomYML {
 	 * @param create a new FileConfiguration
 	 */
 	public FileConfiguration createYML(File f ,String name) {
+		
+		if(!name.contains(".yml")) {
+			name = name + ".yml";
+		}
+		
 		f = new File(p.getDataFolder() + File.separator + name);
 		if(!f.exists()) {
 			f.getParentFile().mkdirs();
@@ -65,6 +79,10 @@ public class CustomYML {
 		this.folder = new File(p.getDataFolder() + File.separator + folder);
 		if(!this.folder.exists()) {
 			this.folder.mkdirs();
+		}
+		
+		if(!name.contains(".yml")) {
+			name = name + ".yml";
 		}
 		
 		f = new File(p.getDataFolder() + File.separator + folder + File.separator + name);
