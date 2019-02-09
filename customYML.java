@@ -1,3 +1,5 @@
+package me.desertfox.utils;
+
 import java.io.File;
 import java.io.IOException;
 
@@ -40,7 +42,7 @@ public class CustomYML {
 	public File createFile(String folder, String name) {
 		this.folder = new File(p.getDataFolder() + File.separator + folder);
 		if(!this.folder.exists()) {
-			this.folder.mkdirs();
+			this.folder.mkdir();
 		}
 		
 		if(!name.contains(".yml")) {
@@ -78,7 +80,7 @@ public class CustomYML {
 		
 		this.folder = new File(p.getDataFolder() + File.separator + folder);
 		if(!this.folder.exists()) {
-			this.folder.mkdirs();
+			this.folder.mkdir();
 		}
 		
 		if(!name.contains(".yml")) {
