@@ -22,7 +22,7 @@ public class CustomYML {
 	}
 	
 	/**
-	 * @param create a new file
+	 * create a new file
 	 */
 	public File createFile(String name) {
 		
@@ -35,7 +35,7 @@ public class CustomYML {
 	}
 	
 	/**
-	 * @param create a new file in a new folder
+	 * create a new file in a new folder
 	 */
 	public File createFile(String folder, String name) {
 		this.folder = new File(p.getDataFolder() + File.separator + folder);
@@ -52,10 +52,9 @@ public class CustomYML {
 	}
 	
 	/**
-	 * @param create a new FileConfiguration
+	 * create a new FileConfiguration
 	 */
 	public FileConfiguration createYML(File f ,String name) {
-		
 		if(!name.contains(".yml")) {
 			name = name + ".yml";
 		}
@@ -72,7 +71,7 @@ public class CustomYML {
 	}
 	
 	/**
-	 * @param create a new FileConfiguration in a new folder
+	 * create a new FileConfiguration in a new folder
 	 */
 	public FileConfiguration createYML(File f, String folder, String name) {
 		
@@ -97,7 +96,7 @@ public class CustomYML {
 	}
 	
 	/**
-	 * @param save a yml
+	 * save a yml
 	 */
 	public boolean saveYML(FileConfiguration fc, File f) {
 		try {
@@ -111,3 +110,4 @@ public class CustomYML {
 	}
 
 }
+
