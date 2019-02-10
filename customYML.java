@@ -40,7 +40,7 @@ public class CustomYML {
 	public File createFile(String folder, String name) {
 		this.folder = new File(p.getDataFolder() + File.separator + folder);
 		if(!this.folder.exists()) {
-			this.folder.mkdir();
+			this.folder.mkdirs();
 		}
 		
 		if(!name.contains(".yml")) {
@@ -77,7 +77,7 @@ public class CustomYML {
 		
 		this.folder = new File(p.getDataFolder() + File.separator + folder);
 		if(!this.folder.exists()) {
-			this.folder.mkdir();
+			this.folder.mkdirs();
 		}
 		
 		if(!name.contains(".yml")) {
