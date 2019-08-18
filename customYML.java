@@ -1,3 +1,5 @@
+package me.desertfox.monsterhunt.utils;
+
 import java.io.File;
 import java.io.IOException;
 
@@ -7,7 +9,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 /**
  * @author DesertFoxHU
- * @version 1.1b
+ * @version 1.2
  */
 
 public class CustomYML {
@@ -38,9 +40,10 @@ public class CustomYML {
 	 * create a new file in a new folder
 	 */
 	public File createFile(String folder, String name) {
+		
 		this.folder = new File(p.getDataFolder() + File.separator + folder);
 		if(!this.folder.exists()) {
-			this.folder.mkdirs();
+			this.folder.mkdir();
 		}
 		
 		if(!name.contains(".yml")) {
@@ -54,7 +57,8 @@ public class CustomYML {
 	/**
 	 * create a new FileConfiguration
 	 */
-	public FileConfiguration createYML(File f ,String name) {
+	public FileConfiguration createYML(File f , String name) {
+		
 		if(!name.contains(".yml")) {
 			name = name + ".yml";
 		}
@@ -75,30 +79,32 @@ public class CustomYML {
 	 */
 	public FileConfiguration createYML(File f, String folder, String name) {
 		
-		this.folder = new File(p.getDataFolder() + File.separator + folder);
+		this.folder = new File(p.getDataFolder() + "\\" + folder);
 		if(!this.folder.exists()) {
-			this.folder.mkdirs();
+			this.folder.mkdir();
 		}
 		
 		if(!name.contains(".yml")) {
 			name = name + ".yml";
 		}
 		
-		f = new File(p.getDataFolder() + File.separator + folder + File.separator + name);
+		f = new File(p.getDataFolder() + "\\" + folder + "\\" + name);
 		if(!f.exists()) {
 			f.getParentFile().mkdirs();
-			p.saveResource(name, false);
+			p.saveResource(folder + "\\" + name, false);
 		}
 		
 		config = new YamlConfiguration();
 		config = YamlConfiguration.loadConfiguration(f);
 		return config;
+		
 	}
 	
 	/**
-	 * save a yml
+	 * Save a yaml file
 	 */
 	public boolean saveYML(FileConfiguration fc, File f) {
+		
 		try {
 			fc.save(f);
 			return true;
@@ -107,7 +113,7 @@ public class CustomYML {
 			ex.printStackTrace();
 		}
 		return false;
+		
 	}
 
 }
-
