@@ -9,7 +9,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 /**
  * @author DesertFoxHU
- * @version 1.3
+ * @version 1.3.1
  *
  * LoadYML feature added by Xzhauloss
  */
@@ -122,7 +122,7 @@ public class CustomYml {
 		return config;
 	}
 	
-	public void saveYML() {
+	public void save() {
 		try {
 			config.save(file);
 		}
