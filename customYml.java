@@ -9,7 +9,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 /**
  * @author DesertFoxHU
- * @version 1.3.1
+ * @version 1.3
  *
  * LoadYML feature added by Xzhauloss
  */
