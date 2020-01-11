@@ -1,0 +1,142 @@
+import java.io.File;
+
+import java.io.IOException;
+
+import org.bukkit.configuration.InvalidConfigurationException;
+import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.configuration.file.YamlConfiguration;
+import org.bukkit.plugin.java.JavaPlugin;
+
+/**
+ * @author DesertFoxHU
+ * @version 1.3
+ *
+ * LoadYML feature added by Xzhauloss
+ */
+
+public class CustomYml {
+
+	private JavaPlugin p;
+	private File file;
+	private FileConfiguration config;
+	
+	public CustomYml(JavaPlugin p) {
+		this.p = p;
+	}
+	
+	public CustomYml createNew(String fileName) {
+		
+		if(!fileName.contains(".yml")) {
+			fileName += ".yml";
+		}
+		
+		file = new File(p.getDataFolder() + File.separator + fileName);
+		if(!file.exists()) {
+			file.getParentFile().mkdirs();
+			p.saveResource(fileName, false);
+		}
+		
+		return this;
+	}
+	
+	public CustomYml createNew(String fileName, boolean loadFromJar) {
+		
+		if(!fileName.contains(".yml")) {
+			fileName += ".yml";
+		}
+		
+		file = new File(p.getDataFolder() + File.separator + fileName);
+		if(!file.exists()) {
+			if(loadFromJar) {
+				file.getParentFile().mkdirs();
+				p.saveResource(fileName, false);
+			}
+			else {
+				try {
+					file.createNewFile();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		
+		return this;
+	}
+	
+	public CustomYml createNew(String directory, String fileName) {
+		
+		if(!fileName.contains(".yml")) {
+			fileName += ".yml";
+		}
+		
+		File dir = new File(p.getDataFolder() + File.separator + directory);
+		if(!dir.exists()) {
+			dir.mkdirs();
+		}
+		
+		file = new File(dir.getAbsolutePath() + File.separator + fileName);
+		if(!file.exists()) {
+			file.getParentFile().mkdirs();
+			p.saveResource(fileName, false);
+		}
+		
+		config = new YamlConfiguration();
+		config = YamlConfiguration.loadConfiguration(file);
+		
+		return this;
+	}
+	
+	public CustomYml createNew(String directory, String fileName, boolean loadFromJar) {
+		
+		if(!fileName.contains(".yml")) {
+			fileName += ".yml";
+		}
+		
+		File dir = new File(p.getDataFolder() + File.separator + directory);
+		if(!dir.exists()) {
+			dir.mkdirs();
+		}
+		
+		file = new File(dir.getAbsolutePath() + File.separator + fileName);
+		if(!file.exists()) {
+			if(loadFromJar) {
+				file.getParentFile().mkdirs();
+				p.saveResource(fileName, false);
+			}
+			else {
+				try {
+					file.createNewFile();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		
+		config = new YamlConfiguration();
+		config = YamlConfiguration.loadConfiguration(file);
+		
+		return this;
+	}
+	
+	public FileConfiguration getConfig() {
+		return config;
+	}
+	
+	public void saveYML(FileConfiguration fc, File f) {
+		try {
+			fc.save(f);
+		}
+		catch(IOException ex) {
+			ex.printStackTrace();
+		}
+	}
+	
+	public void loadYML(FileConfiguration fc, File f) {
+		try {
+			fc.load(f);
+		} catch (IOException | InvalidConfigurationException e) {
+			e.printStackTrace();
+		}
+	}
+
+}
