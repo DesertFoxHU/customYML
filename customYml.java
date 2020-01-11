@@ -122,18 +122,18 @@ public class CustomYml {
 		return config;
 	}
 	
-	public void saveYML(FileConfiguration fc, File f) {
+	public void saveYML() {
 		try {
-			fc.save(f);
+			config.save(file);
 		}
 		catch(IOException ex) {
 			ex.printStackTrace();
 		}
 	}
 	
-	public void loadYML(FileConfiguration fc, File f) {
+	public void load() {
 		try {
-			fc.load(f);
+			config.load(file);
 		} catch (IOException | InvalidConfigurationException e) {
 			e.printStackTrace();
 		}
