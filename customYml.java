@@ -9,7 +9,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 /**
  * @author DesertFoxHU
- * @version 1.3
+ * @version 1.3.2
  *
  * LoadYML feature added by Xzhauloss
  */
@@ -77,7 +77,7 @@ public class CustomYml {
 		file = new File(dir.getAbsolutePath() + File.separator + fileName);
 		if(!file.exists()) {
 			file.getParentFile().mkdirs();
-			p.saveResource(fileName, false);
+			p.saveResource(directory + "\\" + fileName, false);
 		}
 		
 		config = new YamlConfiguration();
@@ -101,7 +101,7 @@ public class CustomYml {
 		if(!file.exists()) {
 			if(loadFromJar) {
 				file.getParentFile().mkdirs();
-				p.saveResource(fileName, false);
+				p.saveResource(directory + "\\" + fileName, false);
 			}
 			else {
 				try {
