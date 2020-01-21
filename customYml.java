@@ -9,7 +9,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 /**
  * @author DesertFoxHU
- * @version 1.3.2
+ * @version 1.3.4
  *
  * LoadYML feature added by Xzhauloss
  */
@@ -36,6 +36,9 @@ public class CustomYml {
 			p.saveResource(fileName, false);
 		}
 		
+		config = new YamlConfiguration();
+		config = YamlConfiguration.loadConfiguration(file);
+		
 		return this;
 	}
 	
@@ -59,6 +62,9 @@ public class CustomYml {
 				}
 			}
 		}
+		
+		config = new YamlConfiguration();
+		config = YamlConfiguration.loadConfiguration(file);
 		
 		return this;
 	}
