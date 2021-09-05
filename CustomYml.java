@@ -1,5 +1,3 @@
-package me.desertfox.prison.utils;
-
 import java.io.File;
 
 import java.io.IOException;
